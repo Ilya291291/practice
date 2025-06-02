@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 // import useFetch from './useFetch';
 // import { useHover } from './useHover'
-import { useLocalStorage } from './useLocalStorage';
+// import { useLocalStorage } from './useLocalStorage';
+import { useViewportSize } from './useViewportSize';
+import { useWindowEvent }from './useWindowEvent';
 
 function App() {
   // const {
@@ -34,16 +36,25 @@ function App() {
     //   </div>
     // );
 
-  const [value, { setItem, removeItem }] = useLocalStorage('some-key');
+//   const [value, { setItem, removeItem }] = useLocalStorage('some-key');
+//   return (
+//     <div>
+//       <p>Значение из LocalStorage: {value}</p>
+//       <div>
+//         <button onClick={() => setItem('new storage value')}>Задать значение</button>
+//         <button onClick={() => removeItem()}>Удалить значение</button>
+//       </div>
+//     </div>
+//   );
+// }
+const { height, width } = useViewportSize();
+
   return (
-    <div>
-      <p>Значение из LocalStorage: {value}</p>
-      <div>
-        <button onClick={() => setItem('new storage value')}>Задать значение</button>
-        <button onClick={() => removeItem()}>Удалить значение</button>
-      </div>
-    </div>
+    <>
+      Width: {width}, height: {height}
+    </>
   );
+
 }
 
 export default App;
