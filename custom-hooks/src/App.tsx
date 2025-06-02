@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import useFetch from './useFetch';
-import { useHover } from './useHover';
+// import useFetch from './useFetch';
+// import { useHover } from './useHover'
+import { useLocalStorage } from './useLocalStorage';
 
 function App() {
   // const {
@@ -25,13 +26,24 @@ function App() {
   //     </div>
   //   );
 
-    const { hovered, ref } = useHover();
+    // const { hovered, ref } = useHover();
 
-    return (
-      <div ref={ref}>
-        {hovered ? 'На меня навели мышку' : 'Наведи мышкой на меня'}
+    // return (
+    //   <div ref={ref}>
+    //     {hovered ? 'На меня навели мышку' : 'Наведи мышкой на меня'}
+    //   </div>
+    // );
+
+  const [value, { setItem, removeItem }] = useLocalStorage('some-key');
+  return (
+    <div>
+      <p>Значение из LocalStorage: {value}</p>
+      <div>
+        <button onClick={() => setItem('new storage value')}>Задать значение</button>
+        <button onClick={() => removeItem()}>Удалить значение</button>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default App;
