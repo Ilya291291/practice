@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 // import useFetch from './useFetch';
 // import { useHover } from './useHover'
 // import { useLocalStorage } from './useLocalStorage';
-import { useViewportSize } from './useViewportSize';
-import { useWindowEvent }from './useWindowEvent';
+// import { useViewportSize } from './useViewportSize';
+// import { useWindowEvent }from './useWindowEvent';
 
 function App() {
   // const {
@@ -47,11 +49,15 @@ function App() {
 //     </div>
 //   );
 // }
-const { height, width } = useViewportSize();
+// const { height, width } = useViewportSize();
 
   return (
+    // <>
+    //   Width: {width}, height: {height}
+    // </>
     <>
-      Width: {width}, height: {height}
+      <SignIn />
+      <SignUp />
     </>
   );
 

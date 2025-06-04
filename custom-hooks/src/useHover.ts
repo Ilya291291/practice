@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 
 function useHover() {
   const [hovered, setHovered] = useState(false)
   const ref = useRef(null)
 
-  const handleMouseEnter = () => setHovered(true)
-  const handleMouseLeave = () => setHovered(false)
+  const handleMouseEnter = useCallback(() => setHovered(true), [])
+  const handleMouseLeave = useCallback(() =>setHovered(false), [])
 
   useEffect(() => {
     const node = ref.current
