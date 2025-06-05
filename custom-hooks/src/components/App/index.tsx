@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.scss';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import SignIn  from '../SignIn';
+import SignUp from '../SignUp';
+import '../../styles/index.scss';
+
 // import useFetch from './useFetch';
 // import { useHover } from './useHover'
 // import { useLocalStorage } from './useLocalStorage';

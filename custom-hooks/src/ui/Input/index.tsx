@@ -15,8 +15,9 @@ interface InputProps {
     isSubmitted?: boolean;
     requiredFields?: boolean | undefined;
     disabled?: boolean;
+    icon?: string
 }
-export const Input = memo((props: InputProps) => {
+const Input = memo((props: InputProps) => {
     const {
         value,
         onChange,
@@ -31,6 +32,7 @@ export const Input = memo((props: InputProps) => {
         isSubmitted,
         requiredFields,
         disabled = false,
+        icon,
     } = props;
     const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
@@ -61,6 +63,7 @@ export const Input = memo((props: InputProps) => {
             ${isSubmitted && !error && !isFocused && type !== 'radio' ? 'valid' : 'label'} 
             ${error && type !== 'radio' ? 'error' : 'label'}
             ${type === 'radio' ? 'radio' : 'label'}
+            ${icon ? 'label_icon' : ''}
             `
         }>
                 <input
@@ -81,3 +84,5 @@ export const Input = memo((props: InputProps) => {
         </div>
     );
 });
+
+export default Input;
